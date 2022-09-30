@@ -5,10 +5,10 @@ import com.cydeo.entity.User;
 
 import java.util.List;
 
-public interface UserService {
-    UserDTO save (UserDTO user);
-    UserDTO findBy(String userName);
-    List<UserDTO> findAll();
-    void deleteById(String userName);
+public interface UserService extends CrudService<UserDTO,String>{
+
+    //if is something unique for service just add
+
+
 
 }
