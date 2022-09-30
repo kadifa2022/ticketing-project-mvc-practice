@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractMapService <T,ID>{
+public abstract class AbstractMapService <T,ID>{//check this one
 
     //save in database map(if we have key and value)
     public Map<ID,T> map=new HashMap<>();
