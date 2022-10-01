@@ -10,29 +10,35 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component//
-public class DataGenerator implements CommandLineRunner {//functional interface provided by spring
-    private final RoleService roleService;//We need interface considerate and
+public class DataGenerator implements CommandLineRunner {  //functional interface provided by spring
+    //we need Inversion of Control
+    private final RoleService roleService;//Dependency injection between two beans
     private final UserService userService;
     public DataGenerator(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
     }
 
-    @Override
-    public void run(String... args) throws Exception {//when you start application first this methode is executed before anything  else
+    @Override//this methode is coming with function interface provided by spring
+    public void run(String... args) throws Exception {//when you start application THIS METHOD WILL EXECUTE FIRST before anything  else
         // - like static block
-       // RoleServiceImpl rs= new RoleServiceImpl();//this is not good it is tight coupling
+
+
+        // RoleServiceImpl rs= new RoleServiceImpl();//yes has been added with save() but =>this is not good it is tight coupling
         //rs.save(adminRole);
 
-        //we need Inversion of Control
 
 
-        //create some roles and put in DB(Map)
+
+        //created some roles and put in DB(Map)-DTO -Data struction  object
         RoleDTO adminRole= new RoleDTO(1L, "Admin");
         RoleDTO managerRole= new RoleDTO(2L, "Manager");
         RoleDTO employeeRole= new RoleDTO(3L, "Employee");
 
-        roleService.save(adminRole);
+
+
+
+        roleService.save(adminRole);//Map<long,RoleDTO>saved
         roleService.save(managerRole);
         roleService.save(employeeRole);
 
@@ -53,7 +59,7 @@ public class DataGenerator implements CommandLineRunner {//functional interface 
         UserDTO user8 = new UserDTO("Bill",
                 "Matt", "bill@cydeo.com", "Abc4", true, "8881239846", employeeRole, Gender.MALE);
 
-        userService.save(user1);
+        userService.save(user1);//Map<User, userDTO> Saved
         userService.save(user2);
         userService.save(user3);
         userService.save(user4);

@@ -1,9 +1,9 @@
 package com.cydeo.enums;
 
 public enum Gender {
-    MALE("Male"), FEMALE("Female");//assign as enum value // if is job in progress can't be constant
+    MALE("Male"), FEMALE("Female");//assign as value in enum constant
 
-   private String value;//field
+   private String value;//to get the value we need constructor and getter
 
     Gender(String value) {//constructor
         this.value = value;
