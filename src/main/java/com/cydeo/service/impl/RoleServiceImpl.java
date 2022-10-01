@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+@Service  //we only need methods like from @Component -creates bean
 public class RoleServiceImpl extends AbstractMapService <RoleDTO,Long>implements RoleService {
     @Override
     public RoleDTO save(RoleDTO role) {
         return super.save(role.getId(), role);
-    }
+    }//wit super.keyword
 
     @Override
     public RoleDTO findById(Long id) {
