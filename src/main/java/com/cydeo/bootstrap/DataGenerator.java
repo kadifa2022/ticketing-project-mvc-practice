@@ -8,6 +8,7 @@ import com.cydeo.enums.Status;
 import com.cydeo.service.ProjectService;
 import com.cydeo.service.RoleService;
 import com.cydeo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -34,15 +35,10 @@ public class DataGenerator implements CommandLineRunner {  //functional interfac
         // RoleServiceImpl rs= new RoleServiceImpl();//yes has been added with save() but =>this is not good it is tight coupling
         //rs.save(adminRole);
 
-
-
-
         //created some roles and put in DB(Map)-DTO -Data struction  object
         RoleDTO adminRole= new RoleDTO(1L, "Admin");
         RoleDTO managerRole= new RoleDTO(2L, "Manager");
         RoleDTO employeeRole= new RoleDTO(3L, "Employee");
-
-
 
 
         roleService.save(adminRole);//Map<long,RoleDTO>saved
