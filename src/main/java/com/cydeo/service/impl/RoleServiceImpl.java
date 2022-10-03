@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service  //we only need methods like from @Component -creates bean
+@Service  //we only need methods -like from @Component -creates bean
 public class RoleServiceImpl extends AbstractMapService <RoleDTO,Long>implements RoleService {
     @Override
     public RoleDTO save(RoleDTO role) {
