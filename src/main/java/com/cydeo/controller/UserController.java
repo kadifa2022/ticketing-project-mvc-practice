@@ -41,7 +41,7 @@ public class UserController {
         return"redirect:/user/create";//why? -application requirement
 
     }
-    @GetMapping("/update/{username}")//just for retrieving data-need to go to the service
+    @GetMapping("/update/{username}")//pathVariable- parameter                            //just for retrieving data-need to go to the service
     public String editUser(@PathVariable("username") String username, Model model){//view and figure what we needed
 
         model.addAttribute("user", userService.findById(username) );
@@ -51,9 +51,9 @@ public class UserController {
         return"/user/update";
 
     }
-    @PostMapping("/update")
+    @PostMapping("/update")//spring is binding @ModelAttribute-Automatically
     public String updateUser(@ModelAttribute("user")UserDTO user){
-        userService.update(user);
+        userService.update(user);//terminology-service
 
         return"redirect:/user/create";
     }
