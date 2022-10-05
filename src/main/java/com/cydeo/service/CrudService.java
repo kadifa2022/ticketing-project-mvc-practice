@@ -2,7 +2,7 @@ package com.cydeo.service;
 
 import java.util.List;
 
-public interface CrudService <T, ID>{//all fields are unique
+public interface CrudService <T, ID>{//Created generics interface because we will have more services with same methode and different parameters - fields are unique
     T save (T user);
     T findById(ID username);
     List<T> findAll();
