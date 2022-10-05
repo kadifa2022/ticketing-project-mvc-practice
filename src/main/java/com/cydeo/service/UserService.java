@@ -8,7 +8,8 @@ import java.util.List;
 public interface UserService extends CrudService<UserDTO,String>{
 
     //if is something unique for service just add
- List<UserDTO> findManager();
+       List<UserDTO> findManager();
+       List<UserDTO> findEmployees();
 
 
 }
