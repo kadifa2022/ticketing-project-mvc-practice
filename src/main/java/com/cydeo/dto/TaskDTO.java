@@ -6,20 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskDTO {
 
-    private ProjectDTO project;
-    private UserDTO assignedEmployee;
+    private Long id;
+
+    private ProjectDTO project;//converting
+    private UserDTO assignedEmployee;//converting because they are not String
     private String taskSubject;
     private String taskDetail;
     private Status taskStatus;
     private LocalDate assignedDate;
 
 
-
 }
+
