@@ -24,15 +24,15 @@ public class UserController {
     @GetMapping("/create")
     public String createUser(Model model){
 
-        model.addAttribute("user", new UserDTO());//empty user
-        model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("user", new UserDTO());//empty user-because we need to save
+        model.addAttribute("roles",roleService.findAll());//bring from DB-service-business logic
         model.addAttribute("users",userService.findAll());
 
         return "/user/create";
 
     }
     @PostMapping ("/create")      //@ModelAttribute holding object//post- methode
-    public String insertUser(@ModelAttribute("user")UserDTO user){//we need to pass empty user object
+    public String insertUser(@ModelAttribute("user")UserDTO user){//medel is interface -we need to pass empty user object
         // model.addAttribute("user", new UserDTO());
         //model.addAttribute("roles", roleService.findAll());
         userService.save(user);//we need to save object -it before
@@ -64,6 +64,7 @@ public class UserController {
 
         return"redirect:/user/create";
     }
+
 
 
 
